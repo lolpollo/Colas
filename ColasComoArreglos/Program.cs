@@ -4,22 +4,40 @@
     {
         static void Main(string[] args)
         {
-            Colas pila = new Colas(10);
+            Colas cola = new Colas(10);
 
-            pila.Agregar("A");
-            pila.Agregar("B");
-            pila.Agregar("C");
+            cola.Agregar("A");
+            cola.Agregar("B");
+            cola.Agregar("C");
 
-            Console.WriteLine(pila.Obtenerdatos());
+            Console.WriteLine(cola.Obtenerdatos());
 
-            pila.Agregar("D");
-            Console.WriteLine(pila.Obtenerdatos());
+            cola.Agregar("D");
+            Console.WriteLine(cola.Obtenerdatos());
 
-            pila.Eliminar();
-            Console.WriteLine(pila.Obtenerdatos());
+            cola.Eliminar();
+            Console.WriteLine(cola.Obtenerdatos());
 
-            pila.Eliminar();
-            Console.WriteLine(pila.Obtenerdatos());
+            cola.Agregar("E");
+            Console.WriteLine(cola.Obtenerdatos());
+
+            cola.Eliminar();
+            Console.WriteLine(cola.Obtenerdatos());
+
+            cola.Agregar("F");
+            Console.WriteLine(cola.Obtenerdatos());
+
+            cola.Eliminar();
+            Console.WriteLine(cola.Obtenerdatos());
+
+            cola.Agregar("G");
+            Console.WriteLine(cola.Obtenerdatos());
+
+            cola.Eliminar();
+            Console.WriteLine(cola.Obtenerdatos());
+
+            cola.Agregar("H");
+            Console.WriteLine(cola.Obtenerdatos());
         }
     }
 }

@@ -6,51 +6,71 @@ namespace ColasComoArreglos
     {
         string[] _cola;
         int _tope;
+        int _cantidad;
+
+        int _primero;
+
+
 
         public Colas(int elementos)
         {
 
             _cola = new string[elementos];
+            _primero = 0;
             _tope = 0;
-
-
+            _cantidad = 0;
         }
 
         public void Agregar(string dato)
         {
-            if (_tope == _cola.Length)
+
+            if (_cantidad == _cola.Length)
             {
                 throw new Exception("La Cola se lleno");
             }
             _cola[_tope] = dato;
             _tope++;
 
+            if (_tope == _cola.Length)
+            {
+                _tope = 0;
+            }
+            _cantidad++;
+
         }
 
         public void Eliminar()
         {
-            // si la cola esta vacia , no se elimina nada y se sale
-            if (_tope == 0)
+
+            if (_cantidad == 0)
             {
                 throw new Exception("La cola esta vacia");
             }
-            // inicializa un for que empieza en un numero antes de el tope 
-            // mueve todos los elementos a la izquierda , 
-            //eliminando el primer elemento como una cola 
-            for (int contador = 0; contador < _tope - 1; contador++)
+            _cola[_primero] = string.Empty;
+            _primero++;
+
+            if (_primero == _cola.Length)
             {
-                _cola[contador] = _cola[contador + 1];
+                _primero = 0;
             }
-            _tope--;
-            _cola[_tope] = string.Empty;
+
+            _cantidad--;
         }
 
         public string Obtenerdatos()
         {
             StringBuilder datos = new StringBuilder();
-            for (int i = 0; i < _tope; i++)
+            int indice = _primero;
+            for (int i = 0; i < _cantidad; i++)
             {
-                datos.AppendLine(_cola[i]);
+                datos.AppendLine(_cola[indice]);
+
+                indice++;
+
+                if (indice == _cola.Length)
+                {
+                    indice = 0;
+                }
             }
             return datos.ToString();
         }
