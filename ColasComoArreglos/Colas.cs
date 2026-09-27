@@ -1,4 +1,6 @@
-﻿namespace ColasComoArreglos
+﻿using System.Text;
+
+namespace ColasComoArreglos
 {
     internal class Colas
     {
@@ -25,7 +27,7 @@
 
         }
 
-        public string Eliminar()
+        public void Eliminar()
 
         {
             if (_tope == 0)
@@ -36,6 +38,15 @@
             _cola[_tope] = string.Empty;
         }
 
+        public string Obtenerdatos()
+        {
+           StringBuilder datos = new StringBuilder();
+            for (int i = 0; i < _tope; i++)
+            {
+                datos.AppendLine(_cola[i]);
+            }
+            return datos.ToString();
+        }
 
     }
 }
